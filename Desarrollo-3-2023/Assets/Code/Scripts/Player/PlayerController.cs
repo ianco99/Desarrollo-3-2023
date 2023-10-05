@@ -25,10 +25,12 @@ namespace Code.Scripts.Player
         [SerializeField] private float acceleration = 5f;
         [SerializeField] private float jumpForce = 5f;
         [SerializeField] private float parryDuration = 1f;
+        [SerializeField] private float friction = 5f;
         [SerializeField] private GameObject hit;
         [SerializeField] private GameObject parryCapsule;
         [SerializeField] private GameObject blockCapsule;
         [SerializeField] private Damageable damageable;
+        [SerializeField] private PhysicsMaterial2D physMat;
 
         // States
         private MovementState<PlayerStates> movementState;
@@ -51,7 +53,7 @@ namespace Code.Scripts.Player
             attackState = new AttackState<PlayerStates>(PlayerStates.Attack, "AttackState", hit);
             parryState = new ParryState<PlayerStates>(PlayerStates.Parry, "ParryState", damageable, parryDuration);
             blockState = new BlockState<PlayerStates>(PlayerStates.Block, "BlockState", damageable);
-            jumpStartState = new JumpStartState<PlayerStates>(PlayerStates.JumpStart, this,"JumpStartState", speed,
+            jumpStartState = new JumpStartState<PlayerStates>(PlayerStates.JumpStart, this, "JumpStartState", speed,
                 acceleration, trans, rb, jumpForce);
             jumpEndState =
                 new JumpEndState<PlayerStates>(PlayerStates.JumpEnd, "JumpEndState", speed, acceleration, trans, rb);
@@ -94,6 +96,7 @@ namespace Code.Scripts.Player
             CheckPlayerState();
             CheckJumpEnd();
             CheckRotation();
+            ChangeFeetFriction();
 
             fsm.Update();
         }
@@ -170,6 +173,17 @@ namespace Code.Scripts.Player
                     break;
                 }
             }
+        }
+
+        /// <summary>
+        /// Check if player is grounded and update the feet friction
+        /// </summary>
+        private void ChangeFeetFriction()
+        {
+            if (movementState.IsGrounded())
+                physMat.friction = friction;
+            else
+                physMat.friction = 0f;
         }
 
         #region State activations

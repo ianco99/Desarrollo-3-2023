@@ -577,10 +577,12 @@ MonoBehaviour:
   acceleration: 2000
   jumpForce: 250
   parryDuration: 0.5
+  friction: 5
   hit: {fileID: 1395205784924420985}
   parryCapsule: {fileID: 6399263026032754680}
   blockCapsule: {fileID: 1102174282694968004}
   damageable: {fileID: 2205056402196420099}
+  physMat: {fileID: 6200000, guid: 1b9ba9afeda3fe44580854d088b877c3, type: 2}
 --- !u!114 &2205056402196420099
 MonoBehaviour:
   m_ObjectHideFlags: 0

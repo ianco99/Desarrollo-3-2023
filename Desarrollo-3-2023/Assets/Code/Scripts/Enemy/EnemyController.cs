@@ -160,8 +160,7 @@ namespace Code.Scripts.Enemy
 
             }
         }
-
-
+        
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;

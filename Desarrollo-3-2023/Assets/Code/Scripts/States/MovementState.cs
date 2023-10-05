@@ -61,7 +61,7 @@ namespace Code.Scripts.States
         /// Check if the object is on the floor
         /// </summary>
         /// <returns></returns>
-        protected bool IsGrounded()
+        public bool IsGrounded()
         {
             if (!transform)
                 return false;

@@ -3848,11 +3848,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2365708590959872771, guid: 0dd2d48b5eaeaab4daa2b013a82a6344, type: 3}
+      propertyPath: physMat
+      value: 
+      objectReference: {fileID: 6200000, guid: 16b07130e0c2b1741b4b968a4138ccd6, type: 2}
     - target: {fileID: 6862336575500731703, guid: 0dd2d48b5eaeaab4daa2b013a82a6344, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2049524397439752245, guid: 0dd2d48b5eaeaab4daa2b013a82a6344, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

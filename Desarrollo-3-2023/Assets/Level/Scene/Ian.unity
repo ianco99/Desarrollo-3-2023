@@ -984,6 +984,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2365708590959872771, guid: 0dd2d48b5eaeaab4daa2b013a82a6344, type: 3}
+      propertyPath: throwBackForce
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 6862336575500731703, guid: 0dd2d48b5eaeaab4daa2b013a82a6344, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1073,6 +1077,22 @@ PrefabInstance:
     - target: {fileID: 4819109336555100032, guid: 1060157c5bde25e4fb11b4856f7d144e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673645940689452460, guid: 1060157c5bde25e4fb11b4856f7d144e, type: 3}
+      propertyPath: hitDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585138666571395096, guid: 1060157c5bde25e4fb11b4856f7d144e, type: 3}
+      propertyPath: hitDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7773540003243455984, guid: 1060157c5bde25e4fb11b4856f7d144e, type: 3}
+      propertyPath: hitDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977679872040531055, guid: 1060157c5bde25e4fb11b4856f7d144e, type: 3}
+      propertyPath: hitDuration
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8320540901993013661, guid: 1060157c5bde25e4fb11b4856f7d144e, type: 3}
       propertyPath: m_FlipX

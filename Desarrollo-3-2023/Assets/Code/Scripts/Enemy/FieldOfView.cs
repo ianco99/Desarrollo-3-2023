@@ -14,6 +14,7 @@ namespace Code.FOV
         public LayerMask obstacleMask;
 
         public List<Transform> visibleTargets = new List<Transform>();
+        public float meshResolution;
 
         public bool searching = false;
 
@@ -45,6 +46,12 @@ namespace Code.FOV
                 FindVisibleTargets();
             }
         }
+
+        private void Update()
+        {
+            DrawFieldOfView();
+        }
+
         private void FindVisibleTargets()
         {
             visibleTargets.Clear();
@@ -66,6 +73,20 @@ namespace Code.FOV
                         visibleTargets.Add(target);
                     }
                 }
+            }
+        }
+
+        private void DrawFieldOfView()
+        {
+            int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
+            float stepAngleSize = viewAngle / stepCount;
+
+            for (int i = 0; i < stepCount; i++)
+            {
+                float angle = transform.eulerAngles.z - viewAngle / 2.0f + stepAngleSize * i;
+                Vector3 directionFromAngle = DirFromAngle(angle, true);
+                Vector3 rotatedAngle = Quaternion.Euler(new Vector3(0.0f, 90.0f, 90.0f)) * directionFromAngle;
+                Debug.DrawLine(transform.position, transform.position + rotatedAngle * viewRadius, Color.red);
             }
         }
     }

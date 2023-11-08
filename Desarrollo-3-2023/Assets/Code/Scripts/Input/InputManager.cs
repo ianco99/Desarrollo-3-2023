@@ -12,6 +12,7 @@ namespace Code.Scripts.Input
         public static event Action onBlockPressed;
         public static event Action onBlockReleased;
         public static event Action onJump;
+        public static event Action onPause;
         public static event Action onGodMode;
 
         private void OnMove(InputValue input)
@@ -45,6 +46,11 @@ namespace Code.Scripts.Input
         private void OnGodMode()
         {
             onGodMode?.Invoke();
+        }
+
+        private void OnPause()
+        {
+            onPause?.Invoke();
         }
     }
 }

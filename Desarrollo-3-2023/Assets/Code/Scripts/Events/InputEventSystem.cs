@@ -10,6 +10,7 @@ namespace Code.Scripts.Events
         [SerializeField] private VoidEventChannel onAttackChannel;
         [SerializeField] private VoidEventChannel onBlockChannel;
         [SerializeField] private VoidEventChannel onJumpChannel;
+        [SerializeField] private VoidEventChannel onPauseChannel;
 
         public Vector2EventChannel OnMoveChannel { get => onMoveChannel; private set => onMoveChannel = value; }
         public VoidEventChannel OnAttackChannel { get => onAttackChannel; private set => onAttackChannel = value; } 
@@ -23,6 +24,7 @@ namespace Code.Scripts.Events
             InputManager.onAttackPressed += AttackPressedAttackers;
             InputManager.onBlockPressed += BlockBlockers;
             InputManager.onJump += JumpJumpers;
+            InputManager.onPause += TogglePause;
         }
 
         private void MoveCharacters(Vector2 axis)
@@ -43,6 +45,11 @@ namespace Code.Scripts.Events
         private void JumpJumpers()
         {
             onJumpChannel.RaiseEvent();
+        }
+
+        private void TogglePause()
+        {
+            onPauseChannel.RaiseEvent();
         }
     }
 }

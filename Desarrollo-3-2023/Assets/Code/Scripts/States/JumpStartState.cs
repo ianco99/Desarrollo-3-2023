@@ -9,6 +9,8 @@ namespace Patterns.FSM
     {
         private MonoBehaviour behaviourClass;
         private JumpStartSettings jumpStartSettings;
+
+        private float originalGravScale;
         
         public JumpStartState(T id, MonoBehaviour coroutineContainer, string name, JumpStartSettings startSettings, Transform transform, Rigidbody2D rb) : base(id, name, startSettings.moveSettings, transform, rb)
         {
@@ -28,14 +30,15 @@ namespace Patterns.FSM
 
             behaviourClass.StartCoroutine(AddForce(transform.up * jumpStartSettings.force, ForceMode2D.Impulse));
 
-            rb.gravityScale *= 2f;
+            originalGravScale = rb.gravityScale;
+            // rb.gravityScale *= 2f;
         }
 
         public override void OnExit()
         {
             base.OnExit();
             
-            rb.gravityScale /= 2f;
+            rb.gravityScale = originalGravScale;
         }
 
         public override void OnUpdate()

@@ -16,10 +16,5 @@ namespace Code.Scripts.States
         public IdleState(T id, string name) : base(id, name)
         {
         }
-        
-        public override void OnEnter()
-        {
-            base.OnEnter();
-        }
     }
 }

@@ -11,6 +11,8 @@ namespace Patterns.FSM
     {
         private JumpEndSettings jumpEndSettings;
 
+        private float originalGravScale;
+
         public JumpEndState(T id, string name, JumpEndSettings settings, Transform transform, Rigidbody2D rb) : base(id, name, settings.moveSettings, transform, rb)
         {
             jumpEndSettings = settings;
@@ -19,13 +21,16 @@ namespace Patterns.FSM
         public override void OnEnter()
         {
             base.OnEnter();
+
+            originalGravScale = rb.gravityScale;
             rb.gravityScale *= jumpEndSettings.gravMultiplier;
         }
 
         public override void OnExit()
         {
             base.OnExit();
-            rb.gravityScale /= jumpEndSettings.gravMultiplier;
+            
+            rb.gravityScale = originalGravScale;
         }
 
         public override void OnUpdate()

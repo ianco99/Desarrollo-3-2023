@@ -16,6 +16,13 @@ namespace Code.Scripts.States
 
         public Vector2 dir;
 
+        public MovementState(T id, MoveSettings settings, Transform transform, Rigidbody2D rb) : base(id)
+        {
+            this.settings = settings;
+            this.transform = transform;
+            this.rb = rb;
+        }
+        
         public MovementState(T id, string name, MoveSettings settings, Transform transform, Rigidbody2D rb) : base(id, name)
         {
             this.settings = settings;

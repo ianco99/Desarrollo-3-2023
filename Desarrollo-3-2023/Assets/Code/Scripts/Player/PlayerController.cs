@@ -31,16 +31,12 @@ namespace Code.Scripts.Player
     public class PlayerController : Character
     {
         [Header("Player:")] [SerializeField] private PlayerStates startState = PlayerStates.Idle;
-        [SerializeField] private float parryDuration = 1f;
-        [SerializeField] private float throwBackForce = 5f;
-        [SerializeField] private float minimumAttackHold = .5f;
         [SerializeField] private GameObject hit;
         [SerializeField] private Damageable damageable;
         [SerializeField] private Collider2D feet;
         [SerializeField] private PhysicsMaterial2D feetMat;
         [SerializeField] private PhysicsMaterial2D bodyMat;
         [SerializeField] private SpriteRenderer outline;
-        [SerializeField] private Color hitOutlineColor;
         [SerializeField] private GameObject pauseCanvas;
 
         [Header("StateSettings")]
@@ -295,7 +291,9 @@ namespace Code.Scripts.Player
         private void PauseHandler()
         {
             Time.timeScale = 0.0f;
-            pauseCanvas.SetActive(true);
+            
+            if (pauseCanvas)
+                pauseCanvas.SetActive(true);
         }
 
         #region State activations

@@ -24,7 +24,7 @@ namespace Patterns.FSM
         public void Update()
         {
             var transition = GetTransition();
-
+ 
             if (transition != null)
                 SetCurrentState(transition.To);
 

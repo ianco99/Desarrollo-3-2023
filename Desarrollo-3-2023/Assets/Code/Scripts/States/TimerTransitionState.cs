@@ -15,6 +15,12 @@ namespace Patterns.FSM
 
         protected float currentTimer;
 
+        public TimerTransitionState(T id, T nextStateID, TimerSettings settings) : base(id)
+        {
+            this.nextStateID = nextStateID;
+            timerSettings = settings;
+        }
+        
         public TimerTransitionState(T id, string name, T nextStateID, TimerSettings settings) : base(id, name)
         {
             this.nextStateID = nextStateID;
